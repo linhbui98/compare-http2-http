@@ -15,8 +15,6 @@ http1app.use(lag)
 const http2app = Express();
 http2app.use((req, res) => {
     const reqPath = req.url === '/' ? '/index.html' : req.url
-    console.log("huy", reqPath)
-    console.log("linh", req.url)
     if (req.url === '/') {
         for (let i = 1; i <= 10; i++) {
             const assetPath = `/download (${i}).jpeg`;
@@ -34,9 +32,9 @@ http2app.use((req, res) => {
 });
 http2app.use(lag)
 
-Https.createServer(certificate, http1app).listen(3001, 'localhost', () => {
+Https.createServer(certificate, http1app).listen(3001, () => {
     console.log("HTTP/1.x")
-    Spdy.createServer(certificate, http2app).listen(3000, 'localhost', () => {
+    Spdy.createServer(certificate, http2app).listen(3000, () => {
         console.log(`HTTP/2 running at https://localhost:3000`)
     });
 });
