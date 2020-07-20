@@ -2,6 +2,8 @@ const Express = require('express');
 const Spdy = require('spdy');
 const Https = require('https');
 const { certificate, getFileHttp1 } = require('./shared');
+const PORT_HTTP2 = process.env.PORT_HTTP2 || 3000;
+const PORT_HTTP1 = process.env.PORT_HTTP1 || 3001;
 const simulateLatency = require('express-simulate-latency');
 
 const lag = simulateLatency({ min: 1000, max: 5000 });
@@ -32,9 +34,9 @@ http2app.use((req, res) => {
 });
 http2app.use(lag)
 
-Https.createServer(certificate, http1app).listen(3001, () => {
+Https.createServer(certificate, http1app).listen(PORT_HTTP1, () => {
     console.log("HTTP/1.x")
-    Spdy.createServer(certificate, http2app).listen(3000, () => {
+    Spdy.createServer(certificate, http2app).listen(PORT_HTTP2, () => {
         console.log(`HTTP/2 running at https://localhost:3000`)
     });
 });
