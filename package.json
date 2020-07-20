@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,5 +15,8 @@
     "express-simulate-latency": "github:j-/express-simulate-latency",
     "mime": "^2.4.6",
     "spdy": "^4.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
