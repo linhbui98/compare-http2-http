@@ -35,8 +35,7 @@ http2app.use((req, res) => {
 http2app.use(lag)
 
 Https.createServer(certificate, http1app).listen(PORT_HTTP1, () => {
-    console.log("HTTP/1.x")
     Spdy.createServer(certificate, http2app).listen(PORT_HTTP2, () => {
-        console.log(`HTTP/2 running at https://localhost:3000`)
+        console.log(`Running at https://localhost:3000`)
     });
 });
