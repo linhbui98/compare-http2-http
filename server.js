@@ -16,9 +16,9 @@ http1app.use(lag)
 // HTTP2
 const http2app = Express();
 http2app.use((req, res) => {
-    const reqPath = req.url === '/' ? '/index.html' : req.url
+    const reqPath = req.url === '/' ? '/index2.html' : req.url
     if (req.url === '/') {
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 100; i++) {
             const assetPath = `/download (${i}).jpeg`;
             const file = getFileHttp1(assetPath);
             const stream = res.push(assetPath, {
