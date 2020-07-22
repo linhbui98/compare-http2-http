@@ -10,7 +10,15 @@ const indexRoute = require('./routes/index');
 
 // HTTP1
 const http1app = Express();
+http1app.set('etag', false);
+http1app.use(function (req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    res.header('Expires', '-1');
+    res.header('Pragma', 'no-cache');
+    next()
+});
 http1app.use(Express.static('assets'));
+
 
 // HTTP2
 const http2app = Express();
