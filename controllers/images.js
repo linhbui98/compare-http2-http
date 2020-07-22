@@ -18,8 +18,8 @@ module.exports = {
         res.render('index', {
             title: 'HTTP/1.x vs HTTP/2',
             host: host,
-            PORT_HTTP1: process.env.PORT_HTTP1,
-            PORT_HTTP2: process.env.PORT_HTTP2,
+            PORT_HTTP1: PORT_HTTP1,
+            PORT_HTTP2: PORT_HTTP2,
         })
     }
 };
