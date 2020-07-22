@@ -1,0 +1,25 @@
+- var n = 1;
+- var m = 1;
+doctype html
+html
+  head
+    title= title
+  body(style="display: inline-table")
+    div(style="position: fixed; top: 10px; left: 50px;")
+      div HTTP1 Images
+      br
+      while n <= 100
+        if (n % 10 == 0)
+          img(width="50" height="50" src=`https://${host}:${PORT_HTTP1}/download (${n++}).jpeg`)
+          br
+        else
+          img(width="50" height="50" src=`https://${host}:${PORT_HTTP1}/download (${n++}).jpeg`)
+    div(style="position: fixed; top: 10px; right: 50px;")
+      div HTTP2 Images
+      br
+      while m <= 100
+        if (m % 10 == 0)
+          img(width="50" height="50" src=`https://${host}:${PORT_HTTP2}/download (${m++}).jpeg`)
+          br
+        else
+          img(width="50" height="50" src=`https://${host}:${PORT_HTTP2}/download (${m++}).jpeg`)
