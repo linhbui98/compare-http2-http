@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-simulate-latency": "github:j-/express-simulate-latency",
     "mime": "^2.4.6",
-    "pug": "^3.0.0",
+    "pug": "^3.0.1",
     "spdy": "^4.0.2"
   },
   "devDependencies": {
